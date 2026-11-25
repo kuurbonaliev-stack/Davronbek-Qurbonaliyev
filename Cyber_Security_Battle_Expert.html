@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER SECURITY BATTLE</title>
+<style>
+:root{--bg:#050914;--panel:rgba(13,24,48,.88);--line:rgba(91,150,255,.22);--cyan:#35e7ff;--blue:#547bff;--purple:#b45cff;--pink:#ff4e9b;--green:#4dffb5;--red:#ff5474;--gold:#ffd66b;--muted:#9aabc9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 15% 10%,#14295a 0,transparent 34%),radial-gradient(ellipse at 90% 20%,#29104b 0,transparent 32%),linear-gradient(145deg,#050914,#080d1c 55%,#090719);color:#f4f7ff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:linear-gradient(rgba(95,156,255,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(95,156,255,.11) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(transparent 50%,rgba(0,0,0,.13) 50%);background-size:100% 4px;opacity:.18}
+button,input{font:inherit}button{cursor:pointer;border:0;color:inherit}.wrap{width:min(1240px,94vw);margin:auto;position:relative;z-index:1;padding:22px 0 48px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#173d76,#35145c);border:1px solid #4f8cff;box-shadow:0 0 25px #277dff55;font-size:23px}.brand b{letter-spacing:.16em;font-size:13px}.brand small{display:block;color:var(--muted);letter-spacing:.08em;margin-top:3px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.ghost,.secondary{background:#121d35;border:1px solid var(--line);padding:10px 13px;border-radius:12px;color:#dce8ff}.ghost:hover,.secondary:hover{border-color:var(--cyan);box-shadow:0 0 18px #35e7ff22}
+.hero{text-align:center;padding:34px 16px 28px}.eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.28em;font-size:11px}.hero h1{font-size:clamp(38px,7vw,76px);line-height:.98;margin:14px 0 12px;letter-spacing:-.055em;text-shadow:0 0 30px #4288ff70}.hero h1 span{background:linear-gradient(90deg,#fff,#5feaff 45%,#bb78ff);background-clip:text;color:transparent}.hero p{color:#aebcda;margin:0 auto;max-width:620px;font-size:15px;line-height:1.6}.neon-line{height:2px;width:min(480px,75%);margin:25px auto;background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent);box-shadow:0 0 18px #35e7ff}
+.panel{background:linear-gradient(145deg,rgba(17,31,60,.91),rgba(9,16,34,.94));border:1px solid var(--line);border-radius:22px;box-shadow:0 18px 60px #0005,inset 0 1px #ffffff0b;backdrop-filter:blur(12px)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.section-head h2{font-size:17px;margin:0;letter-spacing:.04em}.section-head small{color:var(--muted)}
+.setup{padding:22px}.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.team-input{display:flex;align-items:center;gap:10px;background:#0a1429;border:1px solid #26395f;border-radius:14px;padding:10px}.team-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:#1a2d50}.team-input input{min-width:0;width:100%;background:transparent;border:0;outline:0;color:white;font-weight:700}.primary{background:linear-gradient(100deg,#1fbcdb,#526dff 55%,#a54dff);padding:14px 24px;border-radius:14px;font-weight:900;letter-spacing:.06em;box-shadow:0 8px 30px #476dff55;transition:.2s}.primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px #476dff88}.start-row{display:flex;justify-content:center;margin-top:20px}
+.game{display:none}.game.active{display:block;animation:fadeUp .55s ease}.dashboard{display:grid;grid-template-columns:1.4fr .8fr;gap:14px;margin-bottom:14px}.score-panel,.round-panel{padding:18px}.score-list{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.team-card{position:relative;overflow:hidden;text-align:left;padding:12px;border:1px solid #2b416a;background:#0a1429;border-radius:14px;transition:.22s;min-width:0}.team-card.active{border-color:var(--cyan);box-shadow:0 0 0 1px #35e7ff55,0 0 22px #35e7ff25;transform:translateY(-2px)}.team-card .nm{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.team-card .pts{font-size:25px;font-weight:900;margin-top:5px;color:#fff}.team-card .pts small{font-size:10px;color:var(--muted);font-weight:600}.team-card:after{content:"";position:absolute;width:60px;height:60px;border-radius:50%;right:-24px;bottom:-34px;background:var(--team);filter:blur(23px);opacity:.4}.round-info{display:flex;align-items:center;gap:13px}.round-number{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:20px;font-weight:900;background:linear-gradient(135deg,#1a7da0,#6339b8);box-shadow:0 0 22px #35e7ff33}.round-info b{display:block}.round-info small{color:var(--muted)}.progress{height:7px;background:#1c2a48;border-radius:9px;overflow:hidden;margin-top:17px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));box-shadow:0 0 12px var(--cyan);transition:width .4s}
+.play-area{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:14px}.question-panel{padding:clamp(18px,3vw,30px);min-height:430px;position:relative;overflow:hidden}.question-panel:before{content:"";position:absolute;width:300px;height:300px;right:-140px;top:-160px;border-radius:50%;border:1px solid #4a8fff2c;box-shadow:0 0 0 30px #4a8fff09,0 0 0 65px #4a8fff06}.q-top{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative}.pill{font-size:10px;font-weight:900;letter-spacing:.13em;color:var(--cyan);background:#12334a;border:1px solid #28617b;padding:7px 10px;border-radius:99px}.timer{font-variant-numeric:tabular-nums;font-weight:900;font-size:18px;color:var(--gold);background:#342b18;border:1px solid #695329;border-radius:12px;padding:8px 12px}.timer.urgent{color:#ff6a7e;border-color:#a8374c;animation:pulse .6s infinite alternate}.question-panel h2{font-size:clamp(23px,3.4vw,36px);line-height:1.2;margin:26px 0 20px;max-width:760px;position:relative}.options{display:grid;gap:10px;position:relative}.option{display:flex;align-items:center;gap:12px;text-align:left;padding:14px 15px;border-radius:13px;background:#101e39;border:1px solid #2a416b;color:#e8efff;transition:.18s}.option .letter{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:#21385e;color:#80dfff;font-weight:900;flex:none}.option:hover{border-color:#4bcbf2;transform:translateX(3px)}.option.correct{border-color:var(--green);background:#10382f;box-shadow:0 0 20px #4dffb522}.option.wrong{border-color:var(--red);background:#3b1728}.explanation{display:none;margin-top:16px;padding:13px 15px;border-left:3px solid var(--cyan);border-radius:8px;background:#0b1d31;color:#c5d8ef;line-height:1.55;font-size:13px}.explanation.show{display:block;animation:fadeUp .3s}.side-panel{padding:18px;display:flex;flex-direction:column;gap:15px}.side-panel h3{margin:0;font-size:13px;letter-spacing:.12em}.selected-team{background:#0a1429;border:1px solid #2b416a;border-radius:13px;padding:13px}.selected-team small{color:var(--muted)}.selected-team b{display:block;margin-top:5px;font-size:16px}.side-panel .hint{color:#a9b9d7;font-size:12px;line-height:1.55}.side-buttons{display:grid;gap:9px;margin-top:auto}.action{padding:12px;border-radius:12px;font-weight:800;background:#172747;border:1px solid #38517d}.action.good{background:linear-gradient(100deg,#087f69,#16a87f);border:0}.action.bad{background:#351b31;border:1px solid #713453}.action:disabled{opacity:.35;cursor:not-allowed}.tiny{font-size:11px;color:var(--muted)}
+.stage-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap}.stage-footer .secondary{font-size:12px}.toast{position:fixed;z-index:20;top:22px;left:50%;transform:translate(-50%,-130px);padding:13px 22px;border-radius:14px;background:#103b34;border:1px solid #4dffb5;color:#dffff3;font-weight:900;box-shadow:0 10px 40px #0008;transition:.45s cubic-bezier(.2,.8,.2,1)}.toast.show{transform:translate(-50%,0)}
+.overlay{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;background:#020611eF;backdrop-filter:blur(12px);padding:20px}.overlay.show{display:flex}.modal{width:min(700px,96vw);text-align:center;padding:35px 25px;position:relative;overflow:hidden}.modal h2{font-size:clamp(30px,6vw,54px);margin:10px 0;background:linear-gradient(90deg,#fff,var(--gold),#ff9bd2);background-clip:text;color:transparent}.trophy{font-size:76px;filter:drop-shadow(0 0 25px #ffd66b99);animation:bounce 1.1s infinite alternate}.winner-list{display:grid;gap:8px;margin:22px auto;max-width:440px;text-align:left}.winner-row{display:flex;justify-content:space-between;padding:12px 15px;background:#101e39;border:1px solid #34486d;border-radius:12px}.winner-row:first-child{border-color:var(--gold);background:#342b18}.confetti{position:fixed;top:-15px;width:9px;height:15px;z-index:40;pointer-events:none;animation:fall linear forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{to{transform:scale(1.06);box-shadow:0 0 20px #ff547477}}@keyframes bounce{to{transform:translateY(-12px) rotate(5deg)}}@keyframes fall{to{transform:translate(var(--drift),110vh) rotate(780deg);opacity:.8}}@keyframes flash{0%{box-shadow:0 0 0 0 #4dffb566}100%{box-shadow:0 0 0 28px transparent}}
+.flash{animation:flash .6s ease-out}
+@media(max-width:850px){.dashboard{grid-template-columns:1fr}.play-area{grid-template-columns:1fr}.side-panel{min-height:250px}.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.score-list{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:1fr}.topbar{align-items:flex-start}.brand b{font-size:11px}.hero{padding-top:20px}.question-panel{min-height:0}.section-head{align-items:flex-start;flex-direction:column}}
+
+/* BATTLE GAME-SHOW UPGRADE */
+.hero h1{animation:titleGlow 3s ease-in-out infinite alternate}
+@keyframes titleGlow{from{filter:drop-shadow(0 0 8px #35e7ff55)}to{filter:drop-shadow(0 0 25px #a54dff99)}}
+.team-card.active{animation:activeTeam 1.25s ease-in-out infinite alternate}
+@keyframes activeTeam{to{box-shadow:0 0 0 2px #35e7ff55,0 0 30px #35e7ff55;transform:translateY(-3px)}}
+.option{position:relative;overflow:hidden}
+.option:before{content:"";position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(100deg,transparent,#ffffff12,transparent);transition:transform .5s}
+.option:hover:before{transform:translateX(110%)}
+.option.correct{animation:correctPop .42s ease}
+.option.wrong{animation:wrongShake .35s ease}
+@keyframes correctPop{50%{transform:scale(1.025)}}
+@keyframes wrongShake{25%,75%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+.auto-note{font-size:11px;line-height:1.5;text-align:center;color:#a8c8e9;background:#102b43;border:1px solid #27617a;padding:12px;border-radius:12px}
+.q-top .pill{box-shadow:0 0 18px #35e7ff20}
+.question-panel{background-image:radial-gradient(ellipse at 0 100%,#17406a33,transparent 45%),linear-gradient(145deg,rgba(17,31,60,.94),rgba(9,16,34,.96))}
+.primary{background-size:200% 100%;background-position:0 0;transition:background-position .4s,transform .2s,box-shadow .2s}
+.primary:hover{background-position:100% 0}
+
+
+.question-panel h2{letter-spacing:-.025em}
+.option{font-size:14px;line-height:1.45;min-height:58px}
+.option .letter{box-shadow:0 0 12px #35e7ff18}
+.timer{letter-spacing:.08em}
+@media(min-width:900px){.question-panel{min-height:490px}.options{gap:12px}}
+\n</style>
+</head>
+<body>
+<div class="toast" id="toast">+100 BALL! AJOYIB!</div>
+<div class="wrap">
+<header class="topbar">
+  <div class="brand"><div class="logo">🛡️</div><div><b>CYBER SECURITY BATTLE</b><small>THINK FAST · STAY SAFE</small></div></div>
+  <div class="top-actions"><button class="ghost" id="soundBtn" onclick="toggleSound()">🔊 Ovoz: ON</button><button class="ghost" onclick="toggleFull()">⛶ To‘liq ekran</button></div>
+</header>
+<section class="hero">
+  <div class="eyebrow">THE ULTIMATE CYBER CHALLENGE</div>
+  <h1><span>CYBER</span> BATTLE</h1>
+  <p>6 ta komanda. 5 ta murakkab bosqich. Bitta chempion. Kiberxavfsizlik bilimlaringizni sinovdan o‘tkazing!</p>
+  <div class="neon-line"></div>
+</section>
+<section class="panel setup" id="setup">
+  <div class="section-head"><h2>⚡ KOMANDALARNI RO‘YXATDAN O‘TKAZISH</h2><small>Nomlarni xohlaganingizcha o‘zgartiring</small></div>
+  <div class="team-grid" id="teamInputs"></div>
+  <div class="start-row"><button class="primary" onclick="startGame()">BATTLE'NI BOSHLASH&nbsp; ▶</button></div>
+</section>
+<section class="game" id="game">
+  <div class="dashboard">
+    <div class="panel score-panel">
+      <div class="section-head"><h2>🏆 JONLI REYTING</h2><small>Ballar avtomatik hisoblanadi</small></div>
+      <div class="score-list" id="scoreList"></div>
+    </div>
+    <div class="panel round-panel">
+      <div class="round-info"><div class="round-number" id="roundNo">01</div><div><b id="roundName">REAL OR FAKE?</b><small id="roundSub">1-bosqich / 5</small></div></div>
+      <div class="progress"><span id="progressBar"></span></div>
+      <div class="tiny" style="margin-top:9px" id="progressText">Savol 1 / 3</div>
+    </div>
+  </div>
+  <div class="play-area">
+    <main class="panel question-panel">
+      <div class="q-top"><span class="pill" id="category">REAL OR FAKE</span><span class="timer" id="timer">00:30</span></div>
+      <h2 id="question">Savol yuklanmoqda...</h2>
+      <div class="options" id="options"></div>
+      <div class="explanation" id="explanation"></div>
+      <div class="stage-footer"><button class="secondary" onclick="startTimer()">↻ Taymerni qayta boshlash</button><span class="tiny" id="qPoints">Savol qiymati: 100 ball</span></div>
+    </main>
+    <aside class="panel side-panel">
+      <h3>🎮 BOSHQARUV PANELI</h3>
+      <div class="selected-team"><small>Hozir javob berayotgan komanda</small><b id="selectedName">—</b></div>
+      <div class="hint">Komandalar avtomatik navbat bilan o‘ynaydi: 1 → 2 → 3 → 4 → 5 → 6.<br>Komanda javobini aytgach, mos variantni bosing.<br>To‘g‘ri javobga ball darhol qo‘shiladi; xato javobga 0 ball.</div>
+      <div><div class="tiny" style="margin-bottom:8px">NAVBATDAGI KOMANDA</div><div id="teamPicker" style="display:grid;grid-template-columns:1fr 1fr;gap:7px"></div></div>
+      <div class="side-buttons">
+        <button class="action" id="revealBtn" onclick="revealAnswer()">👁 JAVOBNI KO‘RSATISH</button>
+        <div class="auto-note">⚡ Javob variantini bosish bilan natija avtomatik hisoblanadi</div>
+        <button id="correctBtn" style="display:none" aria-hidden="true"></button>
+        <button id="wrongBtn" style="display:none" aria-hidden="true"></button>
+        <button class="primary" id="nextBtn" onclick="nextQuestion()" style="display:none">KEYINGI SAVOL →</button>
+      </div>
+    </aside>
+  </div>
+</section>
+</div>
+<div class="overlay" id="winnerOverlay"><div class="panel modal"><div class="trophy">🏆</div><div class="eyebrow">CHAMPION DETECTED</div><h2 id="winnerTitle">G‘OLIB!</h2><p id="winnerText" style="color:#bdc9e3">Ajoyib natija!</p><div class="winner-list" id="finalScores"></div><button class="primary" onclick="restartGame()">↻ QAYTA O‘YNASH</button></div></div>
+<script>
+const teamsDefault=["Cyber Wolves","Hackers","Firewall","Dark Net","Anonymous","Digital Heroes"];
+const colors=["#35e7ff","#b45cff","#4dffb5","#ff4e9b","#ffd66b","#6f91ff"];
+const rounds=[{"name":"REAL OR FAKE?","sub":"Murakkab xabar tahlili","points":150,"qs":[{"q":"Sizga bank nomidan xabar keldi: “Yangi qurilmadan kirish aniqlandi. Agar bu siz bo‘lmasangiz, ilovadagi Xavfsizlik → Faol seanslar bo‘limini tekshiring”. Xabarda havola yo‘q. Eng to‘g‘ri yondashuv qaysi?","o":["Xabar bank nomini ishlatgani uchun ishonish mumkin","Xabardagi raqamga qo‘ng‘iroq qilib tasdiqlash kerak","Xabarni mustaqil tekshirish: bank ilovasini o‘zingiz ochib, faol seanslarni ko‘rish","Xabarni darhol o‘chirib, akkauntni tekshirmaslik"],"a":2,"e":"Haqiqiyga o‘xshash xabar ham soxta bo‘lishi mumkin. Ilovani xabardagi havola yoki raqamdan emas, o‘zingiz ochib tekshiring."},{"q":"Quyidagi holatlardan qaysi biri fishing ekanini eng kuchli ko‘rsatadi?","o":["Xabar imlo xatolari bilan yozilgan","Xabar sizdan maxfiy kodni yuborishni talab qiladi va buni bajarmasangiz hisob yopilishini aytadi","Xabar ish vaqtida kelgan","Xabarda kompaniya logotipi mavjud"],"a":1,"e":"Asosiy xavf — maxfiy autentifikatsiya kodini talab qilish va bosim o‘tkazish. Imlo yoki logotip yakka holda ishonchli mezon emas."},{"q":"Xodimga kompaniya rahbari nomidan shoshilinch to‘lov topshirig‘i keldi. Xatdagi ism, imzo va lavozim to‘g‘ri ko‘rinadi. Qaysi tekshiruv eng samarali?","o":["Imzo va lavozim mosligini yana bir bor ko‘rish","Xatga javob yozib, “sizmisiz?” deb so‘rash","Oldindan ma’lum bo‘lgan mustaqil aloqa kanali orqali topshiriqni tasdiqlash","Xat kelgan korporativ domen bo‘lsa, to‘lovni bajarish"],"a":2,"e":"Soxta jo‘natuvchi nomi va imzoni ko‘chirishi mumkin. To‘lovni alohida, avvaldan ishonchli kanal orqali tasdiqlang."}]},{"name":"URL FORENSICS","sub":"Domenni ekspert kabi tahlil qil","points":200,"qs":[{"q":"Qaysi manzilda asosiy ro‘yxatdan o‘tgan domen `secure-example.com` hisoblanadi?","o":["https://secure-example.com.login-check.net","https://login.secure-example.com","https://secure-example.com.verify.org","https://secure-example.com@verify.org"],"a":1,"e":"Ikkinchi URLda asosiy domen secure-example.com, login esa subdomen. Birinchi va uchinchisida asosiy domen boshqa; to‘rtinchisida @ dan keyingi host verify.org."},{"q":"Brauzerda `https://pay.example-bank.com.security-alert.net` ko‘rsatilgan. Eng aniq xulosa qaysi?","o":["example-bank.com asosiy domen, chunki nomning boshida turibdi","security-alert.net asosiy domen; qolgan qismi subdomen ko‘rinishida","HTTPS borligi sababli bu bankning rasmiy sayti","Domenni aniqlab bo‘lmaydi, chunki URL juda uzun"],"a":1,"e":"Host nomining eng o‘ngdagi domen qismi muhim. Bu misolda security-alert.net asosiy domen. HTTPS faqat ulanishni shifrlaydi, sayt kimligini kafolatlamaydi."},{"q":"Qaysi belgi IDN homograph hujumiga (ko‘zga o‘xshash belgilar bilan domenni taqlid qilish) eng mos?","o":["Domen nomida ikki so‘z orasida chiziqcha bor","Domen juda qisqa yozilgan","Lotin harfiga juda o‘xshash boshqa alifbo belgisi ishlatilgan","URL oxirida `/login` yo‘li mavjud"],"a":2,"e":"IDN homograph usulida ko‘rinishi o‘xshash Unicode belgilar bilan haqiqiy domen taqlid qilinadi. Ko‘z bilan ajratish qiyin bo‘lishi mumkin."}]},{"name":"SOCIAL ENGINEERING LAB","sub":"Manipulyatsiya usulini aniqlang","points":200,"qs":[{"q":"Qo‘ng‘iroq qiluvchi o‘zini IT bo‘limidan deb tanishtiradi: “Serverdagi nosozlikni bartaraf etish uchun parolingizni ayting”. Bu vaziyatni eng to‘g‘ri tasniflang.","o":["Pretexting: ishonchli rol va bahona yaratib maxfiy ma’lumot so‘rash","Baiting: bepul mahsulot bilan qiziqtirish","Tailgating: ruxsatsiz joyga ortidan kirish","Shoulder surfing: ekrandagi ma’lumotni kuzatish"],"a":0,"e":"Pretexting — soxta shaxs yoki vaziyatni yaratib, jabrlanuvchini ma’lumot berishga ishontirish."},{"q":"Xodimga hamkasbidan kelgandek ko‘ringan fayl yuborildi. Xabar: “Majlis bayonnomasi, makroslarni yoqing, aks holda matn ochilmaydi”. Eng muhim xavf nimada?","o":["Fayl nomida sana borligi","Makroslarni yoqishga undash va jo‘natuvchi shaxsini tekshirmaslik","Hujjat ofis formatida yuborilgani","Xabar qisqa yozilgani"],"a":1,"e":"Zararli hujjatlar makroslarni yoqishga undashi mumkin. Jo‘natuvchini boshqa kanal orqali tekshiring va kutilmagan makroslarni yoqmang."},{"q":"Bir kishi xodim ortidan kirish kartasisiz cheklangan ofisga kirishga urinadi va “Qo‘llarim band, eshikni ushlab turing” deydi. Bu qaysi usul?","o":["Vishing","Tailgating","Smishing","Quid pro quo"],"a":1,"e":"Tailgating — ruxsatli shaxs ortidan jismoniy kirish hududiga noqonuniy kirish. Eshik siyosatiga rioya qilish kerak."}]},{"name":"INCIDENT RESPONSE","sub":"Vaziyatda eng to‘g‘ri qarorni top","points":250,"qs":[{"q":"Xodim fishing sahifasiga korporativ parolini kiritdi, ammo MFA so‘rovini hali tasdiqlamadi. Qaysi harakatlar ketma-ketligi eng maqbul?","o":["MFA so‘rovini tasdiqlash, so‘ng parolni almashtirish","Darhol IT/xavfsizlik guruhiga xabar berish, ishonchli qurilmadan parolni almashtirish va sessiyalarni bekor qilish","Faqat brauzer tarixini tozalash","Kompyuterni o‘chirib, hodisani hech kimga aytmaslik"],"a":1,"e":"Hodisa haqida tez xabar berish, parolni ishonchli qurilmadan yangilash va faol sessiyalarni bekor qilish hisobni himoyalashga yordam beradi. MFA so‘rovini tasdiqlamang."},{"q":"Telefoningizga siz boshlamagan MFA tasdiqlash so‘rovlari ketma-ket kelmoqda. Bu nimani anglatishi mumkin?","o":["Telefon operatsion tizimi yangilanmoqda","Kimdir parolingizni bilib, tasdiqlashni sizdan tasodifan qabul qildirishga urinayotgan bo‘lishi mumkin","MFA ishlayotgani uchun xavf yo‘q","Bu odatiy reklama bildirishnomasi"],"a":1,"e":"Bu MFA fatigue/push bombing urinishiga o‘xshaydi. So‘rovlarni rad eting, parolni yangilang va xavfsizlik bo‘limiga xabar bering."},{"q":"Tashkilot xodimi noma’lum USB qurilmani avtoturargohdan topdi. Qaysi qaror xavfsizlik nuqtayi nazaridan to‘g‘ri?","o":["Qurilmani shaxsiy kompyuterda tekshirish","USB ichidagi fayllarni antivirus bilan skanerlab, keyin ochish","Qurilmani ulamaslik va tashkilotning IT/xavfsizlik bo‘limiga topshirish","Kimga tegishli ekanini bilish uchun barcha fayllarni ochish"],"a":2,"e":"Noma’lum USB qurilma zararli dastur yoki boshqa xavfni olib kelishi mumkin. Uni hech bir qurilmaga ulamang; mas’ul bo‘limga xabar bering."}]},{"name":"FINAL BOSS: EXPERT","sub":"Eng nozik farqlar","points":350,"qs":[{"q":"Quyidagi juftliklardan qaysi biri to‘g‘ri moslashtirilgan?","o":["Smishing — ovozli qo‘ng‘iroq; vishing — SMS","Vishing — ovozli aloqa orqali aldash; smishing — SMS orqali aldash","Pretexting — soxta sayt; spoofing — faqat zararli fayl","Baiting — parolni taxmin qilish; tailgating — soxta email"],"a":1,"e":"Vishing telefon/ovozli aloqa, smishing esa SMS orqali amalga oshiriladigan fishing shakllari."},{"q":"Emailning `From` qatorida tanish tashkilot nomi turibdi. Qaysi fikr texnik jihatdan eng to‘g‘ri?","o":["Ko‘rsatilgan nom va logotip jo‘natuvchini tasdiqlaydi","Faqat HTTPS belgisi emailning haqiqiyligini ko‘rsatadi","Ko‘rinadigan jo‘natuvchi nomi soxtalashtirilishi mumkin; domen va autentifikatsiya natijalarini ham tekshirish kerak","Emailda imzo bo‘lsa, u rasmiy hisoblanadi"],"a":2,"e":"Display name oson soxtalashtiriladi. To‘liq email manzili, domen va SPF/DKIM/DMARC kabi tekshiruvlar muhim, lekin shubhali xabarni baribir mustaqil tekshirish kerak."},{"q":"Xodimga “Sizning akkauntingizga kirish uchun tasdiqlash kodini ayting” degan qo‘ng‘iroq bo‘ldi. Qo‘ng‘iroq qiluvchi xodimning ism-sharifi va bo‘limini ham biladi. Eng to‘g‘ri xulosa qaysi?","o":["Ma’lumotlarni bilgani uning haqiqiy xodimligini isbotlaydi","Faqat ichki bo‘lim nomini aytsa, kodni berish mumkin","Shaxsiy ma’lumotlarni bilishi identifikatsiya emas; kodni bermasdan, rasmiy kanal orqali tekshirish kerak","Kod vaqtinchalik bo‘lgani uchun uni aytish xavfsiz"],"a":2,"e":"Ochiq yoki sizib chiqqan ma’lumotlardan foydalanib ishonch uyg‘otish mumkin. Bir martalik kod ham maxfiy hisoblanadi; hech kimga aytmang."}]}];
+let teams=[],selected=0,roundIndex=0,qIndex=0,answered=false,revealed=false,timerInt=null,timeLeft=30,sound=true,started=false;
+const $=id=>document.getElementById(id);
+function init(){ $("teamInputs").innerHTML=teamsDefault.map((n,i)=>`<label class="team-input"><span class="team-icon" style="color:${colors[i]}">◆</span><input maxlength="24" value="${n}" aria-label="Komanda ${i+1} nomi"></label>`).join("");}
+function startGame(){teams=[...$("teamInputs").querySelectorAll("input")].map((el,i)=>({name:el.value.trim()||teamsDefault[i],score:0,color:colors[i]}));selected=0;roundIndex=0;qIndex=0;started=true;$("setup").style.display="none";$("hero");document.querySelector(".hero").style.display="none";$("game").classList.add("active");renderScores();renderTeams();loadQuestion();playTone(660,.12);window.scrollTo({top:0,behavior:"smooth"});}
+function renderScores(){$("scoreList").innerHTML=teams.map((t,i)=>`<div class="team-card ${i===selected?'active':''}" style="--team:${t.color}"><div class="nm">${i+1}. ${escapeHtml(t.name)} ${i===selected?'· NAVBAT':''}</div><div class="pts">${t.score} <small>BALL</small></div></div>`).join("");}
+function renderTeams(){$("teamPicker").innerHTML=teams.map((t,i)=>`<div class="action" style="padding:9px 5px;font-size:11px;text-align:center;border-color:${i===selected?t.color:'#26395a'};color:${i===selected?t.color:'#8495b4'};background:${i===selected?'#12334a':'#0a1429'}">${i+1}. ${escapeHtml(t.name)} ${i===selected?'◀ NAVBAT':''}</div>`).join("");$("selectedName").textContent=teams[selected].name;}
+function selectTeam(i){selected=i;renderScores();renderTeams();playTone(440,.07);}
+function loadQuestion(){clearInterval(timerInt);answered=false;revealed=false;timeLeft=30;const r=rounds[roundIndex],q=r.qs[qIndex];$("roundNo").textContent=String(roundIndex+1).padStart(2,"0");$("roundName").textContent=r.name;$("roundSub").textContent=`${roundIndex+1}-bosqich / 5`;$("category").textContent=r.name;$("question").textContent=q.q;$("options").innerHTML=q.o.map((o,i)=>`<button class="option" id="opt${i}" onclick="chooseOption(${i})"><span class="letter">${String.fromCharCode(65+i)}</span><span>${o}</span></button>`).join("");$("explanation").classList.remove("show");$("explanation").textContent="";$("qPoints").textContent=`Savol qiymati: ${r.points} ball`;$("revealBtn").disabled=false;$("correctBtn").disabled=true;$("wrongBtn").disabled=true;$("correctBtn").style.display="";$("wrongBtn").style.display="";$("nextBtn").style.display="none";$("progressBar").style.width=`${((roundIndex*3+qIndex)/15)*100}%`;$("progressText").textContent=`Savol ${qIndex+1} / 3 · Jami ${roundIndex*3+qIndex+1}/15`;$("timer").textContent="00:30";$("timer").classList.remove("urgent");renderScores();renderTeams();startTimer();}
+function chooseOption(i){
+  if(answered)return;
+  const q=rounds[roundIndex].qs[qIndex],isCorrect=i===q.a,pts=rounds[roundIndex].points;
+  answered=true;clearInterval(timerInt);revealed=true;
+  document.querySelectorAll(".option").forEach((el,j)=>{
+    el.disabled=true;
+    if(j===q.a)el.classList.add("correct");
+    else if(j===i)el.classList.add("wrong");
+  });
+  if(isCorrect){
+    teams[selected].score+=pts;
+    $("explanation").textContent=`⚡ TO‘G‘RI JAVOB! ${teams[selected].name} +${pts} BALL. `+q.e;
+    $("explanation").style.borderLeftColor="var(--green)";
+    toast(`⚡ ${teams[selected].name.toUpperCase()}  +${pts} BALL!`);
+    playCorrectSound();celebrate(30);
+    $("question").classList.add("flash");
+    setTimeout(()=>$("question").classList.remove("flash"),650);
+  }else{
+    $("explanation").textContent="✕ NOTO‘G‘RI JAVOB — BALL QO‘SHILMADI. "+q.e;
+    $("explanation").style.borderLeftColor="var(--red)";
+    toast("✕ NOTO‘G‘RI JAVOB · BALL QO‘SHILMADI");
+    playWrongSound();
+  }
+  $("explanation").classList.add("show");
+  $("revealBtn").disabled=true;$("correctBtn").disabled=true;$("wrongBtn").disabled=true;
+  $("correctBtn").style.display="none";$("wrongBtn").style.display="none";
+  $("nextBtn").style.display="block";
+  $("nextBtn").textContent=(roundIndex===4&&qIndex===2)?"🏆 NATIJALARNI KO‘RISH":"KEYINGI KOMANDA / SAVOL →";
+  renderScores();
+}
+function revealAnswer(){
+  if(revealed)return;
+  revealed=true;clearInterval(timerInt);
+  const q=rounds[roundIndex].qs[qIndex];
+  document.querySelectorAll(".option").forEach((el,i)=>{el.disabled=true;if(i===q.a)el.classList.add("correct");});
+  $("explanation").textContent="To‘g‘ri javob: "+String.fromCharCode(65+q.a)+". "+q.o[q.a]+". "+q.e;
+  $("explanation").classList.add("show");$("revealBtn").disabled=true;
+  $("nextBtn").style.display="block";$("nextBtn").textContent="KEYINGI KOMANDA / SAVOL →";
+  answered=true;
+}
+function scoreAnswer(correct){if(answered)return;answered=true;clearInterval(timerInt);if(correct){const pts=rounds[roundIndex].points;teams[selected].score+=pts;toast(`⚡ +${pts} BALL! ${teams[selected].name.toUpperCase()}!`);celebrate(24);playTone(880,.18);$("question").classList.add("flash");setTimeout(()=>$("question").classList.remove("flash"),650);}else{toast("JAVOB QABUL QILINDI · KEYINGI SAFAR OMAD!");playTone(180,.2);}renderScores();$("correctBtn").disabled=true;$("wrongBtn").disabled=true;$("revealBtn").disabled=true;$("nextBtn").style.display="block";$("nextBtn").textContent=(roundIndex===4&&qIndex===2)?"🏆 NATIJALARNI KO‘RISH":"KEYINGI SAVOL →";}
+function nextQuestion(){
+  if(qIndex<2)qIndex++;
+  else if(roundIndex<4){roundIndex++;qIndex=0;toast("🚀 YANGI BOSQICH: "+rounds[roundIndex].name);}
+  else{showWinner();return;}
+  selected=(selected+1)%teams.length;
+  loadQuestion();
+}
+function startTimer(){clearInterval(timerInt);timeLeft=30;$("timer").textContent="00:30";$("timer").classList.remove("urgent");timerInt=setInterval(()=>{timeLeft--;$("timer").textContent="00:"+String(Math.max(0,timeLeft)).padStart(2,"0");if(timeLeft<=10)$("timer").classList.add("urgent");if(timeLeft<=0){clearInterval(timerInt);$("timer").textContent="VAQT!";answered=true;revealed=true;document.querySelectorAll(".option").forEach(el=>el.disabled=true);$("explanation").textContent="⏱ VAQT TUGADI — BALL QO‘SHILMADI. Keyingi komanda javob beradi.";$("explanation").classList.add("show");$("revealBtn").disabled=true;$("nextBtn").style.display="block";$("nextBtn").textContent="KEYINGI KOMANDA / SAVOL →";toast("⏱ VAQT TUGADI · 0 BALL");playWrongSound();}},1000);}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300);}
+function celebrate(n){for(let i=0;i<n;i++){const c=document.createElement("i");c.className="confetti";c.style.left=Math.random()*100+"vw";c.style.background=["#35e7ff","#b45cff","#4dffb5","#ffd66b","#ff4e9b"][i%5];c.style.setProperty("--drift",(Math.random()*240-120)+"px");c.style.animationDuration=(2+Math.random()*2)+"s";document.body.appendChild(c);setTimeout(()=>c.remove(),4300);}}
+function showWinner(){
+  clearInterval(timerInt);$("progressBar").style.width="100%";
+  const sorted=[...teams].sort((a,b)=>b.score-a.score),top=sorted[0].score;
+  const winners=sorted.filter(t=>t.score===top);
+  $("winnerTitle").textContent=winners.length>1?"DURRANG!":winners[0].name.toUpperCase();
+  $("winnerText").textContent=winners.length>1?"Bir nechta komanda teng natija qayd etdi!":"CYBER SECURITY BATTLE chempioni aniqlandi!";
+  $("finalScores").innerHTML=sorted.map((t,i)=>`<div class="winner-row"><span>${["🥇","🥈","🥉","4️⃣","5️⃣","6️⃣"][i]} ${escapeHtml(t.name)}</span><b>${t.score} ball</b></div>`).join("");
+  $("winnerOverlay").classList.add("show");celebrate(120);playTone(1040,.35);
+  announceWinner(winners);
+}
+function announceWinner(winners){
+  if(!sound || !("speechSynthesis" in window))return;
+  window.speechSynthesis.cancel();
+  const names=winners.map(t=>t.name).join(" and ");
+  const phrase=winners.length>1
+    ? `It's a tie! ${names} are the winners! Congratulations!`
+    : `Winner is ${names}! You win the game! Congratulations!`;
+  const utterance=new SpeechSynthesisUtterance(phrase);
+  utterance.lang="en-US";utterance.rate=0.88;utterance.pitch=1.02;utterance.volume=1;
+  const voices=window.speechSynthesis.getVoices();
+  const englishVoice=voices.find(v=>v.lang && v.lang.toLowerCase().startsWith("en"));
+  if(englishVoice)utterance.voice=englishVoice;
+  window.speechSynthesis.speak(utterance);
+}
+function restartGame(){$("winnerOverlay").classList.remove("show");$("game").classList.remove("active");$("setup").style.display="block";document.querySelector(".hero").style.display="block";$("progressBar").style.width="0";teams=[];clearInterval(timerInt);window.scrollTo({top:0,behavior:"smooth"});}
+function toggleSound(){sound=!sound;$("soundBtn").textContent=sound?"🔊 Ovoz: ON":"🔇 Ovoz: OFF";}
+function playTone(freq,dur){if(!sound)return;try{const C=window.AudioContext||window.webkitAudioContext,ctx=new C(),o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=freq;o.type="sine";g.gain.setValueAtTime(.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+dur);o.start();o.stop(ctx.currentTime+dur);setTimeout(()=>ctx.close(),dur*1000+100);}catch(e){}}
+function playCorrectSound(){if(!sound)return;playTone(660,.12);setTimeout(()=>playTone(880,.16),100);setTimeout(()=>playTone(1120,.22),220);}
+function playWrongSound(){if(!sound)return;playTone(240,.18);setTimeout(()=>playTone(165,.25),130);}
+function toggleFull(){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.();}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+init();
+</script>
+</body>
+</html>
